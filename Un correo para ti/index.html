@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💖 Un correo para ti by carlos 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      color: #333;
+      transition: background-color 0.5s ease;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .screen {
+      display: none;
+      animation: fadeIn 0.8s ease;
+      width: 90%;
+      max-width: 600px;
+    }
+    .active {
+      display: block;
+    }
+    .main-img {
+      width: 280px;
+      height: auto;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      border: none;
+      box-shadow: none;
+    }
+    .main-img:hover {
+      transform: scale(1.05);
+    }
+    .card {
+      background: repeating-linear-gradient(
+        white,
+        white 28px,
+        #e3e3e3 29px
+      );
+      border-radius: 0; /* esquinas en punta */
+      padding: 40px 60px;
+      border: 2px solid #e5e5e5;
+      width: 95%;
+      max-width: 900px;
+      text-align: left;
+      margin: 0 auto;
+      box-sizing: border-box;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease;
+    }
+    .card h3 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2em;
+      text-align: left;
+      margin-bottom: 20px;
+      margin-left: 10px;
+      color: #444;
+    }
+    .card p {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.3em;
+      line-height: 1.6;
+      text-align: justify;
+      color: #444;
+      margin: 10px 0;
+    }
+    .return-btn {
+      margin-top: 25px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+      background-color: #ff4f81;
+      color: white;
+    }
+    .return-btn:hover {
+      background-color: #ff2a66;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.95);}
+      to {opacity: 1; transform: scale(1);}
+    }
+  </style>
+</head>
+<body>
+  <div class="screen active" id="screen1">
+    <h2>Hola, te llegó un correo</h2>
+    <img src="gato cartero.png" alt="Correo" class="main-img" onclick="nextScreen(2)">
+  </div>
+  <div class="screen" id="screen2">
+    <h2>Una cartita para ti</h2>
+    <img src="carta.png" alt="Carta" class="main-img" onclick="nextScreen(3)">
+  </div>
+  <div class="screen" id="screen3">
+    <h2>¡Ábrelo!</h2>
+    <img src="carta abierta.png" alt="Sobre" class="main-img" onclick="nextScreen(4)">
+  </div>
+  <div class="screen" id="screen4">
+    <h2>¿Qué dirá?</h2>
+    <img src="carta rosa.png" alt="Carta lista" class="main-img" onclick="nextScreen(5)">
+  </div>
+  <div class="screen" id="screen5">
+    <div class="card">
+      <h3>Mi reina hermosa,</h3>
+      <p>Cada vez que te miro, siento que el tiempo se detiene, 
+        como si solo existieramos tu y yo, y el mundo entero fuera
+        solo una historia que quiero vivir a tu lado.
+        Eres la luz que ilumina mis días, la calma que necesito 
+        en las noches.
+        Tu sonrisa me da fuerzas y tu amor me da la paz que 
+        nunca imaginé tener.
+        Me haces sentir tan afortunado, como si cada momento contigo fuera un regalo.</p>
+      <p>No hay nada mas hermoso que compartir mi vida contigo, porque sinceramente,
+        no quiero nada más que a ti.</p>
+      <p>Eres mi todo, mi razón de ser, y cada vez te veo y escucho siento que todo
+        cobra sentido, porque al final del día, lo único que quiero es que sea feliz,
+         y que yo pueda ser la razón de esa felicidad siempre.</p>
+      <p>Te amo mi reina ,</p>
+      <p>Con amor Carlos 💌</p>
+    </div>
+    <div style="text-align: center;">
+      <button class="return-btn" onclick="nextScreen(1)">🔙 Regresar</button>
+    </div>
+  </div>
+  <script>
+    function nextScreen(num) {
+      const current = document.querySelector(".screen.active");
+      if (current) current.classList.remove("active");
+      document.getElementById("screen" + num).classList.add("active");
+    }
+  </script>
+</body>
+</html>
